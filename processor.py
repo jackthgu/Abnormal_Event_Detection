@@ -44,7 +44,8 @@ from keras.preprocessing.image import img_to_array,load_img
 import numpy as np
 import glob
 import os 
-from scipy.misc import imresize 
+#from scipy.misc import imresize 
+from skimage.transform import resize
 import argparse
 
 imagestore=[]
@@ -74,9 +75,8 @@ def store(image_path):
 
 	#Resize the Image to (227,227,3) for the network to be able to process it. 
 
-
-	img=imresize(img,(227,227,3))
-
+	#img=imresize(img,(227,227,3))
+	img=resize(img, (227,227,3))
 	#Convert the Image to Grayscale
 
 

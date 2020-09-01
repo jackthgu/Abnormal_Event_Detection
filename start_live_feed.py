@@ -21,7 +21,8 @@ Author: Harsh Tiku
 import cv2
 from model import load_model
 import numpy as np 
-from scipy.misc import imresize
+#from scipy.misc import imresize
+import skimage
 from test import mean_squared_loss
 from keras.models import load_model
 import argparse
@@ -48,7 +49,7 @@ while True:
 	imagedump=[]
 	for i in range(10):
 		rval,frame=vc.read()
-		frame=imresize(frame,(227,227,3))
+		frame=skimage.transform.resize(frame,(227,227,3))
 
 		#Convert the Image to Grayscale
 
